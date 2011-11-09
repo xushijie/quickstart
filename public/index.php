@@ -14,6 +14,17 @@ set_include_path(implode(PATH_SEPARATOR, array(
     get_include_path(),
 )));
 
+//配置数据库参数,并连接数据库
+$config=new Zend_Config_Ini('./application/configs/applocaton.ini',null, true);
+Zend_Registry::set('config',$config);
+$dbAdapter=Zend_Db::factory($config->general->db->adapter,
+
+$config->general->db->config->toArray());
+$dbAdapter->query('SET NAMES UTF8');
+Zend_Db_Table::setDefaultAdapter($dbAdapter);
+Zend_Registry::set('dbAdapter',$dbAdapter);
+
+
 /** Zend_Application */
 require_once 'Zend/Application.php';
 
@@ -22,5 +33,10 @@ $application = new Zend_Application(
     APPLICATION_ENV,
     APPLICATION_PATH . '/configs/application.ini'
 );
+
+
+
+
+
 $application->bootstrap()
             ->run();
