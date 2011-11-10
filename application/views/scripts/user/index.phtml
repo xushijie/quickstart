@@ -8,8 +8,8 @@
       Guestbook Entries: <br />
       <dl>
           <?php foreach ($this->entries as $entry): ?>
-          <dt><?php echo $this->escape($entry->_first_name) ?></dt>
-          <dd><?php echo $this->escape($entry->_second_name) ?></dd>
-          <dd><?php echo $this->escape($entry->_user_name) ?></dd>
+          <dt><?php echo $this->escape($entry->FirstName) ?></dt>
+          <dd><?php echo $this->escape($entry->LastName) ?></dd>
+          <dd><?php echo $this->escape($entry->UserName) ?></dd>
           <?php endforeach ?>
       </dl>

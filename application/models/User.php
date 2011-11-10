@@ -60,15 +60,17 @@ class Application_Model_User
 	//Other option for _set/_get methods for User field.
 	
     public function setFirstName($firstName){
-    	$this->_firstName = $firstName;
+    	$this->_first_name = $firstName;
+    	return $this;
     }
     
     public function getFirstName(){
-    	return $this->_firstName;	
+    	return $this->_first_name;	
     }
     
     public function setLastName($lastName){
     	$this->_last_name = $lastName;
+    	return $this;
     }
     
     public function getLastName(){
@@ -77,6 +79,7 @@ class Application_Model_User
     
     public function setUserName($userName){
     	$this->_user_name = $userName;
+    	return $this;
     }
     public function getUserName(){
     	return $this->_user_name;
