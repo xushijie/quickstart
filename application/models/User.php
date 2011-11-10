@@ -2,9 +2,13 @@
 
 class Application_Model_User
 {
-  	protected $_comment;
-    protected $_created;
-    protected $_email;
+  	/**
+  	 * Enter description here ...
+  	 * @var unknown_type
+  	 */
+  	protected $_first_name;
+    protected $_last_name;
+    protected $_user_name;
     protected $_id;
     public function __construct(array $options = null)
     {
@@ -17,7 +21,7 @@ class Application_Model_User
     {
         $method = 'set' . $name;
         if (('mapper' == $name) || !method_exists($this, $method)) {
-            throw new Exception('Invalid guestbook property');
+            throw new Exception('Invalid User property');
         }
         $this->$method($value);
     }
@@ -26,7 +30,7 @@ class Application_Model_User
     {
         $method = 'get' . $name;
         if (('mapper' == $name) || !method_exists($this, $method)) {
-            throw new Exception('Invalid guestbook property');
+            throw new Exception('Invalid User property');
         }
         return $this->$method();
     }
@@ -54,6 +58,29 @@ class Application_Model_User
         return $this->_id;
     }
 	//Other option for _set/_get methods for User field.
+	
+    public function setFirstName($firstName){
+    	$this->_firstName = $firstName;
+    }
+    
+    public function getFirstName(){
+    	return $this->_firstName;	
+    }
+    
+    public function setLastName($lastName){
+    	$this->_last_name = $lastName;
+    }
+    
+    public function getLastName(){
+    	return $this->_last_name;
+    }
+    
+    public function setUserName($userName){
+    	$this->_user_name = $userName;
+    }
+    public function getUserName(){
+    	return $this->_user_name;
+    }
 }
 
 ?>

@@ -21,20 +21,20 @@ class Application_Model_UserMapper
 	public function getDbTable()
 	{
 		if (null === $this->_dbTable) {
-			$this->setDbTable('Application_Model_DbTable_Guestbook');
+			$this->setDbTable('Application_Model_DbTable_User');
 		}
 		return $this->_dbTable;
 	}
 
-	public function save(Application_Model_Guestbook $guestbook)
+	public function save(Application_Model_User $user)
 	{
 		$data = array(
-            'email'   => $guestbook->getEmail(),
-            'comment' => $guestbook->getComment(),
-            'created' => date('Y-m-d H:i:s'),
+            'firstName'   => $user->getFirstName(),
+            'lastName' => $user->getLastName(),
+            'userName' => $user->getUserName(),
 		);
 		
-		if (null === ($id = $guestbook->getId())) {
+		if (null === ($id = $user->getId())) {
 			unset($data['id']);
 			$this->getDbTable()->insert($data);
 		} else {
@@ -44,13 +44,13 @@ class Application_Model_UserMapper
 
 	public function find($id, Application_Model_Guestbook $guestbook)
 	{
-		$result = $this->getDbTable()->find($id);
-		if (0 == count($result)) {
-			return;
-		}
-		$row = $result->current();
-		$guestbook->setId($row->id)
-		->setEmail($row->email)->setComment($row->comment)->setCreated($row->created);
+//		$result = $this->getDbTable()->find($id);
+//		if (0 == count($result)) {
+//			return;
+//		}
+//		$row = $result->current();
+//		$guestbook->setId($row->id)
+//		->setEmail($row->email)->setComment($row->comment)->setCreated($row->created);
 
 	}
 
@@ -59,8 +59,8 @@ class Application_Model_UserMapper
 		$resultSet = $this->getDbTable()->fetchAll();
 		$entries   = array();
 		foreach ($resultSet as $row) {
-			$entry = new Application_Model_Guestbook();
-			$entry->setId($row->id)->setEmail($row->email)->setComment($row->comment)->setCreated($row->created);
+			$entry = new Application_Model_User();
+			$entry->setId($row->id)->setFirstName($row->first_name)->setLastName($row->last_name)->setUserName($row->user_name);
 			$entries[] = $entry;
 		}
 		return $entries;
