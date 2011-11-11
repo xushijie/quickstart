@@ -29,9 +29,9 @@ class Application_Model_UserMapper
 	public function save(Application_Model_User $user)
 	{
 		$data = array(
-            'firstName'   => $user->getFirstName(),
-            'lastName' => $user->getLastName(),
-            'userName' => $user->getUserName(),
+            'first_name'   => $user->getFirstName(),
+            'last_name' => $user->getLastName(),
+            'user_name' => $user->getUserName(),
 		);
 		
 		if (null === ($id = $user->getId())) {
@@ -42,15 +42,14 @@ class Application_Model_UserMapper
 		}
 	}
 
-	public function find($id, Application_Model_Guestbook $guestbook)
+	public function find($id, Application_Model_User $user)
 	{
-//		$result = $this->getDbTable()->find($id);
-//		if (0 == count($result)) {
-//			return;
-//		}
-//		$row = $result->current();
-//		$guestbook->setId($row->id)
-//		->setEmail($row->email)->setComment($row->comment)->setCreated($row->created);
+		$result = $this->getDbTable()->find($id);
+		if (0 == count($result)) {
+			return;
+		}
+		$row = $result->current();
+		$user->setId($row->id)->setFirstName($row->first_name)->setLastName($row->last_name)->setUserName($row->user_name);
 
 	}
 

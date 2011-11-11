@@ -15,6 +15,25 @@ class UserController extends Zend_Controller_Action
         echo "hello world ";
     }
 
+    public function addAction()
+    {
+        $request = $this->getRequest();
+        $form    = new Application_Form_User();
+ 
+        if ($this->getRequest()->isPost()) {
+            if ($form->isValid($request->getPost())) {
+                $user = new Application_Model_User($form->getValues());
+                $mapper  = new Application_Model_UserMapper();
+                $mapper->save($user);
+                return $this->_helper->redirector('index');
+            }
+        }
+ 
+        $this->view->form = $form;
+    }
+
 
 }
+
+
 
