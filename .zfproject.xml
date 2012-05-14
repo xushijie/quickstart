@@ -19,9 +19,14 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="add"/>
         </controllerFile>
+        <controllerFile controllerName="Employee">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="add"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="User"/>
+        <formFile formName="Employee"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -31,9 +36,12 @@
       <modelsDirectory>
         <dbTableDirectory>
           <dbTableFile dbTableName="User"/>
+          <dbTableFile dbTableName="Employee"/>
         </dbTableDirectory>
         <modelFile modelName="UserMapper"/>
         <modelFile modelName="User"/>
+        <modelFile modelName="EmployeeMaper"/>
+        <modelFile modelName="Employee"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -51,6 +59,12 @@
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="add"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Employee">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Employee">
             <viewScriptFile forActionName="add"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>

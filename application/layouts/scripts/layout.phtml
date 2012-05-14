@@ -2,20 +2,36 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Zend Framework Quickstart Application</title>
+  <title>NJH Xushijie Work history </title>
   <?php echo $this->headLink()->appendStylesheet('/css/global.css') ?>
 </head>
 <body>
 <div id="header" style="background-color: #EEEEEE; height: 30px;">
-    <div id="header-logo" style="float: left">
-        <b>ZF Quickstart Application</b>
-    </div>
+	<table>   
+    <tr>
+    <td>
     <div id="header-navigation" style="float: right">
         <a href="<?php echo $this->url(
-            array('controller'=>'news','action'=>'index'),
+            array('controller'=>'employee','action'=>'index'),
             'default',
-        true) ?>">MyNews</a>    <!-- 这里是重写的链接地址，地址是通过控制器和行为来定义的  -->
+        true) ?>">Employee</a>    <!-- 这里是重写的链接地址，地址是通过控制器和行为来定义的  -->
     </div>
+    </td><td>
+    
+    <div id="header-navigation" style="float: right">
+        <a href="<?php echo $this->url(
+            array('controller'=>'employee','action'=>'add'),
+            'default',
+        true) ?>">Add Employee</a>    <!-- 这里是重写的链接地址，地址是通过控制器和行为来定义的  -->
+    </div></td>
+	<td> <div id="header-navigation" style="float: right">
+        <a href="<?php echo $this->url(
+            array('controller'=>'employee','action'=>'delete'),
+            'default',
+        true) ?>">delete Employee</a>    <!-- 这里是重写的链接地址，地址是通过控制器和行为来定义的  -->
+    </div></td>
+    </tr>
+    </table>
 </div>
 
 <?php echo $this->layout()->content ?>  <!-- 这里的content就是显示我们view视图总的html代码  -->
