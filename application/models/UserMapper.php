@@ -58,7 +58,7 @@ class Application_Model_UserMapper
 		$resultSet = $this->getDbTable()->fetchAll();
 		$entries   = array();
 		foreach ($resultSet as $row) {
-			$entry = new Application_Model_User();
+			$entry = new Application_Model_ApplicationUser();
 			$entry->setId($row->id)->setFirstName($row->first_name)->setLastName($row->last_name)->setUserName($row->user_name);
 			$entries[] = $entry;
 		}
