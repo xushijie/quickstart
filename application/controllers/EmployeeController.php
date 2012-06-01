@@ -1,5 +1,7 @@
 <?php
 
+use services\Data\DataService;
+
 class EmployeeController extends Zend_Controller_Action
 {
 
@@ -32,6 +34,15 @@ class EmployeeController extends Zend_Controller_Action
         $this->view->form = $form;
     }
 
+    
+    public function testAction(){
+    	$dataService = new DataService();
+    	$array = array("1","2","4");
+    	foreach($array as $item){
+    		$dataService->getStatus($item);
+    	}
+    	echo $dataService->getStatus("");
+    }
 
 }
 
