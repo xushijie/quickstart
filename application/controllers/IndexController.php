@@ -23,8 +23,8 @@ class IndexController extends Zend_Controller_Action
         //echo $this->view->render('index.phtml');
     }
 
-    public function sayHelloAction(){
-        echo "hello world...";
+    public function testAction(){
+        //echo "hello world...";
    }
 }
 

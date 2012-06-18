@@ -1,0 +1,35 @@
+body,html {
+    margin: 0 5px;
+    font-family: Helvetica, sans-serif;
+}
+
+#header {
+    height: 30px;
+}
+
+#logged-in-as {
+    margin-top: 10px;
+    float:right;
+}
+
+h1 {
+    font-size: 1.4em;
+    color: #008000;
+    font-weight: normal;
+}
+a {
+    color: #000000;
+}
+
+/* style form */
+form dt {
+    width: 100px;
+    display: block;
+    float: left;
+    clear: left;
+}
+form dd {
+    margin-left: 0;
+    float: left;
+    
+}

@@ -4,8 +4,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>NJH Xushijie Work history </title>
   <?php echo $this->headLink()->appendStylesheet('/css/global.css') ?>
+  <?php echo $this->headLink()->appendStylesheet($this->baseUrl().'/css/site.css'); ?>
 </head>
-<body>
+
 <div id="header" style="background-color: #EEEEEE; height: 30px;">
 	<table>   
     <tr>
@@ -30,9 +31,20 @@
             'default',
         true) ?>">delete Employee</a>    <!-- 这里是重写的链接地址，地址是通过控制器和行为来定义的  -->
     </div></td>
+    <td> <div id="header-navigation" style="float: right">
+        <a href="<?php echo $this->url(
+            array('controller'=>'solution','action'=>'index'),
+            'default',
+        true) ?>">Solution list</a>    <!-- 这里是重写的链接地址，地址是通过控制器和行为来定义的  -->
+    </div></td>
     </tr>
     </table>
 </div>
+<div id="header">
+    <div id="logged-in-as"><?php echo $this->loggedInAs(); ?></div>
+</div>
+
+<body>
 
 <?php echo $this->layout()->content ?>  <!-- 这里的content就是显示我们view视图总的html代码  -->
 
